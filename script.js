@@ -1,4 +1,5 @@
 const numberOfFilms = +prompt("how many fils your watches?");
+
 const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -6,10 +7,28 @@ const personalMovieDB = {
     genres: [],
     private: false
 };
-const a = prompt('Один з останніх фільмів який ви подивилися?');
-b = prompt('Яку оцінку ви поставите йому?');
-c = prompt('Один з останніх фільмів який ви подивилися?');
-d = prompt('Яку оцінку ви поставите йому?');
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
+let i = 0;
+2
+while (i < 2) {
+    const a = prompt('Один з останніх фільмів який ви подивилися?');
+    b = prompt('Яку оцінку ви поставите йому?');
+
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done')
+    } else {
+        console.log('error');
+        i--;
+    }
+    i++
+}
+if (personalMovieDB.count <= 10) {
+    console.log('Просмотрено довольно мало фильмов')
+} else if (personalMovieDB.count <= 30) {
+    console.log('Вы класический зритель')
+} else if (personalMovieDB.count > 30) {
+    console.log('Вы киноман')
+} else {
+    console.log('Error')
+}
+console.log(personalMovieDB)
